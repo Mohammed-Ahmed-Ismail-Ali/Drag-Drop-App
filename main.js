@@ -3,6 +3,7 @@ let add = document.getElementById("add");
 let boxes = document.querySelectorAll(".box");
 let drag = null;
 
+// we create the paragraph and add it to the box;
 add.onclick = function() {
   if(input.value != ""){
     boxes[0].innerHTML += `
@@ -15,6 +16,7 @@ add.onclick = function() {
 };
 
 function dragItem() {
+  // getting all the items;
   let items = document.querySelectorAll(".item");
   items.forEach(item => {
     item.addEventListener("dragstart", function() {
@@ -29,7 +31,7 @@ function dragItem() {
 
     boxes.forEach(box => {
       box.addEventListener('dragover', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // to solve the problem when we drop over the item
         this.style.backgroundColor = "#090";
         this.style.color = "white";
       });
